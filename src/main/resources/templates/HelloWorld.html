@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Hello</h1>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-messaging.js"></script>
+<script type="text/javascript">
+//Khởi tạo đối tượng firebase.messaging
+const messaging = firebase.messaging();
+
+// Lấy id của thiết bị web mà người dùng đang truy cập
+messaging.getToken().then((currentToken) => {
+  if (currentToken) {
+    console.log('Id của thiết bị web:', currentToken);
+  } else {
+    console.log('Không thể lấy id của thiết bị web');
+  }
+}).catch((err) => {
+  console.log('Lỗi khi lấy id của thiết bị web:', err);
+});
+
+</script>
+</body>
+</html>
